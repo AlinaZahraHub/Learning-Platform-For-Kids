@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="gummy-style.css">
+    <title>Gummy-Colors</title>
+</head>
+
+<body>
+
+    <a href="../index.html" class="back-btn">⬅ Back</a>
+
+    <div class="abc-container">
+        <h1 class="page-title">Gummy-Colors: Color Adventures 🌈</h1>
+
+        <!-- Tab Navigation -->
+        <div class="tabs">
+            <button class="tab-btn active" id="btn-mixer" onclick="switchTab('mixer')">Palette Mixer</button>
+            <button class="tab-btn" id="btn-sort" onclick="switchTab('sorter')">Color Sort</button>
+            <button class="tab-btn" id="btn-hide" onclick="switchTab('hide')">Hide & Seek</button>
+            <button class="tab-btn" id="btn-parade" onclick="switchTab('parade')">Rainbow Parade</button>
+            <button class="tab-btn" id="btn-quiz" onclick="switchTab('quiz')">Quiz</button>
+        </div>
+
+        <!-- Tab 1: Palette Mixer -->
+        <div id="mixer" class="tab-content" style="display: block;">
+            <h2 style="color: var(--accent-emerald);">Click two colors to mix!</h2>
+            <div class="alphabet-grid">
+                <button class="lollipop-head" style="background: red;" onclick="selectColor('red')">Red</button>
+                <button class="lollipop-head" style="background: yellow;" onclick="selectColor('yellow')">Yellow</button>
+                <button class="lollipop-head" style="background: blue;" onclick="selectColor('blue')">Blue</button>
+                <button class="lollipop-head" style="background: white; border: 2px solid #ccc; color: #555;" onclick="selectColor('white')">White</button>
+                <button class="lollipop-head" style="background: black;" onclick="selectColor('black')">Black</button>
+                <button class="lollipop-head" style="background: #555;" onclick="resetMix()">Reset</button>
+            </div>
+            <div id="gummyPot" class="donut-area">
+                <span style="font-size: 2rem; color: #777;">Mix me!</span>
+            </div>
+        </div>
+
+        <!-- Tab 2: Color Sort -->
+        <div id="sorter" class="tab-content" style="display: none;">
+            <h2 style="color: var(--accent-emerald);">Drag gummies into the right basket!</h2>
+            <div id="gummy-pool" class="alphabet-grid">
+                <!-- Gummy items here -->
+                <div class="gummy-item" draggable="true" ondragstart="drag(event)" id="red-gummy" style="background: red;"></div>
+                <div class="gummy-item" draggable="true" ondragstart="drag(event)" id="blue-gummy" style="background: blue;"></div>
+                <div class="gummy-item" draggable="true" ondragstart="drag(event)" id="yellow-gummy" style="background: yellow;"></div>
+                <div class="gummy-item" draggable="true" ondragstart="drag(event)" id="green-gummy" style="background: green;"></div>
+                <div class="gummy-item" draggable="true" ondragstart="drag(event)" id="pink-gummy" style="background: pink;"></div>
+                <div class="gummy-item" draggable="true" ondragstart="drag(event)" id="purple-gummy" style="background: purple;"></div>
+                <div class="gummy-item" draggable="true" ondragstart="drag(event)" id="brown-gummy" style="background: brown;"></div>
+                <div class="gummy-item" draggable="true" ondragstart="drag(event)" id="black-gummy" style="background: black;"></div>
+                <div class="gummy-item" draggable="true" ondragstart="drag(event)" id="orange-gummy" style="background: orange;"></div>
+                <div class="gummy-item" draggable="true" ondragstart="drag(event)" id="white-gummy" style="background: white; border: 1px solid #ccc;"></div>
+            </div>
+            <div class="alphabet-grid">
+                <div class="basket" ondrop="drop(event)" ondragover="allowDrop(event)" id="red-basket">Red</div>
+                <div class="basket" ondrop="drop(event)" ondragover="allowDrop(event)" id="blue-basket">Blue</div>
+                <div class="basket" ondrop="drop(event)" ondragover="allowDrop(event)" id="yellow-basket">Yellow</div>
+                <div class="basket" ondrop="drop(event)" ondragover="allowDrop(event)" id="green-basket">Green</div>
+                <div class="basket" ondrop="drop(event)" ondragover="allowDrop(event)" id="pink-basket">Pink</div>
+                <div class="basket" ondrop="drop(event)" ondragover="allowDrop(event)" id="purple-basket">Purple</div>
+                <div class="basket" ondrop="drop(event)" ondragover="allowDrop(event)" id="brown-basket">Brown</div>
+                <div class="basket" ondrop="drop(event)" ondragover="allowDrop(event)" id="black-basket">Black</div>
+                <div class="basket" ondrop="drop(event)" ondragover="allowDrop(event)" id="orange-basket">Orange</div>
+                <div class="basket" ondrop="drop(event)" ondragover="allowDrop(event)" id="white-basket">White</div>
+            </div>
+            <button class="tab-btn" onclick="resetSort()">Play Again 🔄</button>
+        </div>
+
+        <!-- Tab 3: Hide & Seek -->
+        <div id="hide" class="tab-content" style="display: none;">
+            <h2 style="color: var(--accent-emerald);">Click the leaves to find the Gummy Bears!</h2>
+            <div class="alphabet-grid" id="hide-grid">
+                <div class="leaf" onclick="revealGummy(this, 'Red')">Leaf 🍃</div>
+                <div class="leaf" onclick="revealGummy(this, 'Blue')">Leaf 🍃</div>
+                <div class="leaf" onclick="revealGummy(this, 'Yellow')">Leaf 🍃</div>
+                <div class="leaf" onclick="revealGummy(this, 'Green')">Leaf 🍃</div>
+                <div class="leaf" onclick="revealGummy(this, 'Pink')">Leaf 🍃</div>
+                <div class="leaf" onclick="revealGummy(this, 'Purple')">Leaf 🍃</div>
+                <div class="leaf" onclick="revealGummy(this, 'Brown')">Leaf 🍃</div>
+                <div class="leaf" onclick="revealGummy(this, 'Black')">Leaf 🍃</div>
+                <div class="leaf" onclick="revealGummy(this, 'Orange')">Leaf 🍃</div>
+                <div class="leaf" onclick="revealGummy(this, 'White')">Leaf 🍃</div>
+            </div>
+            <button class="tab-btn" onclick="resetHide()">Play Again 🔄</button>
+        </div>
+
+        <!-- Tab 4: Rainbow Parade -->
+        <div id="parade" class="tab-content" style="display: none;">
+            <h2 style="color: var(--accent-emerald);">Watch the Rainbow Parade!</h2>
+            <div class="parade-track" id="paradeTrack" style="height: 100px; position: relative;"></div>
+            <button class="tab-btn" onclick="startParade()">Start Parade 🥁</button>
+            <button class="tab-btn" onclick="resetParade()">Reset 🔄</button>
+        </div>
+
+        <!-- Tab 5: Quiz -->
+        <div id="quiz" class="tab-content" style="display: none;">
+            <h2 style="color: var(--accent-emerald);">Rainbow Master Quiz 🎓</h2>
+            
+            <!-- Quiz Menu -->
+            <div class="alphabet-grid" id="quiz-menu">
+                <button class="challenge-circle" onclick="runQuiz('Mix & Match')">🎨<br>Mix &<br>Match</button>
+                <button class="challenge-circle" onclick="runQuiz('Sorting Champion')">🧺<br>Sorting<br>Champ</button>
+                <button class="challenge-circle" onclick="runQuiz('Hidden Shade')">🔍<br>Shade<br>Hunt</button>
+                <button class="challenge-circle" onclick="runQuiz('Rainbow Quest')">🌈<br>Rainbow<br>Quest</button>
+                <button class="challenge-circle" onclick="runQuiz('Master Reward')">🏆<br>Rainbow<br>Master</button>
+            </div>
+
+            <!-- Quiz Active Area -->
+            <div id="quiz-area" style="margin-top: 20px; display: none;">
+                <p id="question" style="font-size: 1.5rem;"></p>
+                <div id="options" class="alphabet-grid"></div>
+                <div id="score-board" style="margin-top:20px; font-size: 1.5rem; color: var(--accent-emerald);">
+                    Score: 0
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="gummy-script.js"></script>
+</body>
+</html>

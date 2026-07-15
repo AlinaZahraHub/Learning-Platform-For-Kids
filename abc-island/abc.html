@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="abc-style.css">
+    <title>ABC Island</title>
+</head>
+<body>
+
+    <a href="../index.html" class="back-btn">⬅ Back</a>
+
+    <div class="abc-container">
+        <h1 class="page-title">ABC Island 🏝️</h1>
+        
+        <div class="tabs">
+            <button class="tab-btn active" onclick="openTab(event, 'alphabet')">Alphabet</button>
+            <button class="tab-btn" onclick="openTab(event, 'words')">Words</button>
+            <button class="tab-btn" onclick="openTab(event, 'quiz')">Quiz</button>
+        </div>
+
+        <div id="alphabet" class="tab-content" style="display: block;">
+            <div class="alphabet-grid" id="alphabetGrid"></div>
+        </div>
+
+        <div id="words" class="tab-content">
+            <div class="words-grid" id="wordsGrid"></div>
+        </div>
+
+        <div id="quiz" class="tab-content">
+            <div id="quizHeader">
+                <span id="scoreBoard">Score: 0</span>
+                <span id="timer">⏰ 10s</span>
+            </div>
+            <div id="quizContainer" style="text-align: center; padding: 20px;"></div>
+        </div>
+    </div>
+
+    <!-- Reward Modal -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <h2>🎉 Champion! 🎉</h2>
+            <p>You have reached 50 points! You are a Star Catcher!</p>
+            <button onclick="closeModal()">Play More</button>
+        </div>
+    </div>
+
+    <script src="abc-script.js"></script>
+</body>
+</html>

@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
+
+:root { --bg-main: #FFFDD0; --accent-emerald: #2E8B57; --light-peach: #FFE5B4; }
+body { background-color: var(--bg-main); font-family: 'Fredoka One', cursive; padding: 20px; }
+
+.back-btn { position: absolute; top: 20px; left: 20px; background: white; padding: 10px 20px; border-radius: 50px; text-decoration: none; color: var(--accent-emerald); border: 2px solid var(--accent-emerald); font-weight: bold; }
+.abc-container { max-width: 900px; margin: 60px auto; text-align: center; }
+.page-title { color: var(--accent-emerald); font-size: 2.5rem; margin-bottom: 30px; }
+
+.tab-btn { padding: 10px 20px; border-radius: 50px; border: none; background: #ddd; cursor: pointer; margin: 5px; font-family: inherit; }
+.tab-btn.active { background: var(--accent-emerald); color: white; }
+
+.tab-content { display: none; }
+
+.alphabet-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(80px, 1fr)); gap: 20px; padding: 20px; justify-items: center; }
+.lollipop-head { width: 80px; height: 80px; border-radius: 50%; border: none; cursor: pointer; color: white; font-weight: bold; box-shadow: 0 4px 10px rgba(0,0,0,0.2); transition: transform 0.2s; }
+.lollipop-head:hover { transform: scale(1.1); }
+
+.donut-area { margin-top: 30px; padding: 40px; background: white; border-radius: 40px; border: 8px solid #d35400; min-height: 150px; display: flex; justify-content: center; align-items: center; box-shadow: inset 0 0 20px rgba(0,0,0,0.1), 0 10px 20px rgba(0,0,0,0.2); transition: background 0.5s; }
+
+/* Color Sort Styles */
+.gummy-item { width: 50px; height: 50px; border-radius: 10px; cursor: grab; }
+.basket { 
+    width: 120px; height: 100px; 
+    border: 8px solid #8b4513; 
+    border-top: 20px solid #8b4513; 
+    border-radius: 0 0 40px 40px; 
+    display: flex; align-items: center; justify-content: center; 
+    font-weight: bold; background: white; 
+    position: relative; padding-top: 10px;
+}
+
+/* Hide & Seek Styles */
+.leaf { 
+    width: 100px; height: 100px; background: #2E8B57; 
+    border-radius: 50% 0 50% 50%; display: flex; flex-direction: column;
+    justify-content: center; align-items: center; 
+    cursor: pointer; 
+    color: white; font-size: 1rem; font-weight: bold;
+    text-shadow: 2px 2px 4px #000; 
+    transition: transform 0.3s;
+}
+.leaf:hover { transform: scale(1.05); }
+.gummy-revealed { border: 2px solid #ccc; cursor: default; }
+
+/* Parade Styles */
+.parade-track { 
+    height: 150px; border-bottom: 5px dashed #8b4513; 
+    display: flex; align-items: flex-end; overflow: hidden; 
+    position: relative; background: #fff; border-radius: 10px; margin-top: 20px;
+}
+.marching-gummy { 
+    width: 60px; height: 60px; border-radius: 10px; 
+    margin: 0 10px; position: absolute; bottom: 0;
+    display: flex; justify-content: center; align-items: center;
+    color: white; font-weight: bold; font-size: 1.5rem;
+    transition: transform 0.5s ease-in-out;
+    border: 3px solid #333; 
+    box-shadow: 0 4px 8px rgba(0,0,0,0.5); 
+}
+
+/* Quiz Styles */
+#quiz-area { background: #fff; padding: 30px; border-radius: 20px; border: 4px solid var(--accent-emerald); }
+.quiz-btn { padding: 15px 30px; border-radius: 10px; border: none; background: #f0f0f0; cursor: pointer; font-family: inherit; font-size: 1.2rem; margin: 5px; }
+.quiz-btn:hover { background: var(--accent-emerald); color: white; }
+
+.challenge-circle {
+    width: 120px; height: 120px; border-radius: 50%;
+    background-color: var(--accent-emerald);
+    color: white; border: 4px solid white;
+    cursor: pointer; font-family: 'Fredoka One', cursive;
+    font-size: 1rem; display: flex; flex-direction: column;
+    justify-content: center; align-items: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3); transition: transform 0.2s;
+}
+.challenge-circle:hover { transform: scale(1.1); }

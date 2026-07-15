@@ -1,0 +1,131 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
+
+:root {
+    --bg-main: #FFFDD0;
+    --accent-emerald: #2E8B57;
+    --card-white: #FFFFFF;
+}
+
+body {
+    background-color: var(--bg-main);
+    font-family: 'Fredoka One', cursive;
+    margin: 0;
+    overflow-x: hidden;
+}
+
+/* Navbar */
+.navbar {
+    background: var(--card-white);
+    padding: 20px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.brand { font-size: 1.5rem; color: var(--accent-emerald); }
+.nav-links a { color: #555; text-decoration: none; margin-left: 20px; }
+
+/* Hero Section */
+.hero { display: flex; justify-content: space-between; align-items: center; padding: 80px 10%; }
+.hero-text h1 { font-size: 3.5rem; color: #333; }
+
+@keyframes float-complex {
+    0% { transform: translate(0, 0); }
+    25% { transform: translate(15px, -20px); }
+    50% { transform: translate(0, -35px); }
+    75% { transform: translate(-15px, -20px); }
+    100% { transform: translate(0, 0); }
+}
+
+.floating-lollipop {
+    font-size: 120px;
+    display: inline-block;
+    animation: float-complex 4s ease-in-out infinite;
+}
+
+/* Cards Section */
+.section-title { text-align: center; color: var(--accent-emerald); font-size: 2.5rem; margin-top: 80px; }
+.treat-container { display: flex; justify-content: center; flex-wrap: wrap; gap: 40px; padding: 40px 20px; margin-bottom: 50px; }
+
+.treat-card {
+    background: var(--card-white);
+    border: 3px solid var(--accent-emerald);
+    border-radius: 30px;
+    padding: 20px;
+    width: 220px;
+    text-align: center;
+    position: relative;
+    margin-top: 40px; /* Space for floating icon */
+    transition: 0.3s;
+}
+
+.small-icon {
+    position: absolute;
+    top: -40px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 2.5rem;
+    animation: float-icon 3s ease-in-out infinite;
+}
+
+@keyframes float-icon {
+    0% { transform: translateX(-50%) translateY(0); }
+    50% { transform: translateX(-50%) translateY(-15px); }
+    100% { transform: translateX(-50%) translateY(0); }
+}
+
+.large-emoji { font-size: 3rem; display: block; margin: 5px 0; }
+.treat-card h3 { color: var(--accent-emerald); margin: 10px 0; font-size: 1.2rem; }
+.treat-card p { font-size: 0.8rem; color: #555; margin-bottom: 15px; }
+
+.explore-btn {
+    background-color: var(--accent-emerald);
+    color: white;
+    padding: 8px 20px;
+    border-radius: 50px;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 0.9rem;
+}
+
+.treat-card:hover { transform: translateY(-10px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+
+/* Mouse Trail */
+span.candy-trail {
+    position: absolute;
+    pointer-events: none;
+    user-select: none;
+    font-size: 20px;
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+/* Tablet (Screens choti hone par) */
+@media (max-width: 900px) {
+    .bento-grid, .treat-container {
+        grid-template-columns: repeat(2, 1fr); /* 2 columns */
+    }
+    .hero {
+        flex-direction: column; /* Text aur Lollipop upar-neeche ho jayenge */
+        text-align: center;
+        padding: 40px 20px;
+    }
+}
+
+/* Mobile (Screens aur choti hone par) */
+@media (max-width: 600px) {
+    .navbar {
+        flex-direction: column;
+        gap: 10px;
+    }
+    .nav-links {
+        display: flex;
+        gap: 10px;
+    }
+    .treat-container {
+        grid-template-columns: 1fr; /* Sirf 1 column - cards ek ke niche ek */
+    }
+    .hero-text h1 {
+        font-size: 2rem;
+    }
+}

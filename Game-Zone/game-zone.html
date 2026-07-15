@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="game-zone-style.css">
+    <title>Game-Zone: Candy Land</title>
+</head>
+<body>
+
+    <a href="../index.html" class="back-btn">⬅ Back</a>
+
+    <div class="abc-container">
+        <h1 class="page-title">Game-Zone 🎮</h1>
+
+        <!-- Tab Navigation -->
+        <div class="tabs">
+            <button class="tab-btn active" id="btn-sorting-pit" onclick="switchGame('sorting-pit')">Candy Sorting Pit</button>
+            <button class="tab-btn" id="btn-game2" onclick="switchGame('game2')">Gumdrop Number Toss</button>
+            <button class="tab-btn" id="btn-game3" onclick="switchGame('game3')">Sweet Path Memory</button>
+            <button class="tab-btn" id="btn-game4" onclick="switchGame('game4')">Lollipop Fishing Pond</button>
+        </div>
+
+        <!-- Game 1: The Sorting Pit -->
+        <div id="sorting-pit" class="tab-content" style="display: block;">
+            <h2 style="color: var(--accent-emerald);">Drag candies into the right basket!</h2>
+            
+            <div id="candy-pool" class="alphabet-grid">
+                <div class="gummy-item" draggable="true" ondragstart="drag(event)" id="red-candy" style="background: red;"><div class="lollipop-stick"></div></div>
+                <div class="gummy-item" draggable="true" ondragstart="drag(event)" id="blue-candy" style="background: blue;"><div class="lollipop-stick"></div></div>
+                <div class="gummy-item" draggable="true" ondragstart="drag(event)" id="yellow-candy" style="background: yellow;"><div class="lollipop-stick"></div></div>
+                <div class="gummy-item" draggable="true" ondragstart="drag(event)" id="green-candy" style="background: #2ecc71;"><div class="lollipop-stick"></div></div>
+                <div class="gummy-item" draggable="true" ondragstart="drag(event)" id="orange-candy" style="background: #e67e22;"><div class="lollipop-stick"></div></div>
+                <div class="gummy-item" draggable="true" ondragstart="drag(event)" id="purple-candy" style="background: #9b59b6;"><div class="lollipop-stick"></div></div>
+                <div class="gummy-item" draggable="true" ondragstart="drag(event)" id="pink-candy" style="background: #ff69b4;"><div class="lollipop-stick"></div></div>
+                <div class="gummy-item" draggable="true" ondragstart="drag(event)" id="brown-candy" style="background: #8b4513;"><div class="lollipop-stick"></div></div>
+                <div class="gummy-item" draggable="true" ondragstart="drag(event)" id="cyan-candy" style="background: #00ced1;"><div class="lollipop-stick"></div></div>
+                <div class="gummy-item" draggable="true" ondragstart="drag(event)" id="grey-candy" style="background: #95a5a6;"><div class="lollipop-stick"></div></div>
+            </div>
+
+            <div class="basket-container">
+                <div class="basket" ondrop="dropCandy(event)" ondragover="allowDrop(event)" id="red-basket" style="border-color: #e74c3c;">Red</div>
+                <div class="basket" ondrop="dropCandy(event)" ondragover="allowDrop(event)" id="blue-basket" style="border-color: #3498db;">Blue</div>
+                <div class="basket" ondrop="dropCandy(event)" ondragover="allowDrop(event)" id="yellow-basket" style="border-color: #f1c40f;">Yellow</div>
+                <div class="basket" ondrop="dropCandy(event)" ondragover="allowDrop(event)" id="green-basket" style="border-color: #2ecc71;">Green</div>
+                <div class="basket" ondrop="dropCandy(event)" ondragover="allowDrop(event)" id="orange-basket" style="border-color: #e67e22;">Orange</div>
+                <div class="basket" ondrop="dropCandy(event)" ondragover="allowDrop(event)" id="purple-basket" style="border-color: #9b59b6;">Purple</div>
+                <div class="basket" ondrop="dropCandy(event)" ondragover="allowDrop(event)" id="pink-basket" style="border-color: #ff69b4;">Pink</div>
+                <div class="basket" ondrop="dropCandy(event)" ondragover="allowDrop(event)" id="brown-basket" style="border-color: #8b4513;">Brown</div>
+                <div class="basket" ondrop="dropCandy(event)" ondragover="allowDrop(event)" id="cyan-basket" style="border-color: #00ced1;">Cyan</div>
+                <div class="basket" ondrop="dropCandy(event)" ondragover="allowDrop(event)" id="grey-basket" style="border-color: #95a5a6;">Grey</div>
+            </div>
+            <button class="reset-btn" onclick="resetSortingGame()">Reset</button>
+        </div>
+
+        <!-- Game 2: Gumdrop Number Toss -->
+        <div id="game2" class="tab-content" style="display: none;">
+            <h2 id="instruction" style="color: var(--accent-emerald);">Level 1: Put 1 gumdrop in Bucket #1</h2>
+            <div class="alphabet-grid" id="gumdrop-pool">
+                <div class="gummy-item" draggable="true" ondragstart="drag(event)" id="gumdrop-1" style="background: #e67e22;"><div class="lollipop-stick"></div></div>
+                <div class="gummy-item" draggable="true" ondragstart="drag(event)" id="gumdrop-2" style="background: #e67e22;"><div class="lollipop-stick"></div></div>
+                <div class="gummy-item" draggable="true" ondragstart="drag(event)" id="gumdrop-3" style="background: #e67e22;"><div class="lollipop-stick"></div></div>
+            </div>
+            <div class="alphabet-grid basket-container">
+                <div class="basket" ondrop="dropGumdrop(event)" ondragover="allowDrop(event)" id="bucket-1">#1</div>
+                <div class="basket" ondrop="dropGumdrop(event)" ondragover="allowDrop(event)" id="bucket-2">#2</div>
+                <div class="basket" ondrop="dropGumdrop(event)" ondragover="allowDrop(event)" id="bucket-3">#3</div>
+            </div>
+            <button class="reset-btn" onclick="resetGumdropGame()">Reset</button>
+        </div>
+
+        <!-- Game 3: Sweet Path -->
+        <div id="game3" class="tab-content" style="display: none;">
+            <h2 id="path-instruction" style="color: var(--accent-emerald);">Listen... find the letter: A</h2>
+            <div class="sweet-path-container" id="sweet-path"></div>
+            <button class="reset-btn" onclick="resetSweetPath()">Reset</button>
+        </div>
+
+        <!-- Game 4: Lollipop Fishing Pond -->
+        <div id="game4" class="tab-content" style="display: none;">
+            <h2 id="pond-instruction" style="color: var(--accent-emerald);">Catch a lollipop and name it!</h2>
+            <div id="fishing-pond" class="pond"></div>
+            <div class="catch-bucket" id="catch-bucket"><h3>My Catch Bucket</h3></div>
+            <button class="reset-btn" onclick="resetFishingGame()">Reset</button>
+        </div>
+
+        
+    </div>
+
+    <script src="game-zone-script.js"></script>
+    <script>initSweetPath(); initPond();</script>
+</body>
+</html>

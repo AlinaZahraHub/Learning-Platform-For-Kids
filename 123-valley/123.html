@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="123-style.css">
+    <title>123-Valley</title>
+</head>
+<body>
+
+    <a href="../index.html" class="back-btn">⬅ Back</a>
+
+    <div class="abc-container">
+        <h1 class="page-title">123-Valley: Math Adventures 🍩</h1>
+        
+        <!-- Tab Navigation -->
+        <div class="tabs">
+            <button class="tab-btn active" id="btn-bakery" onclick="showTab('bakery')">Donut Bakery</button>
+            <button class="tab-btn" id="btn-critters" onclick="showTab('critters')">Counting Critters</button>
+            <button class="tab-btn" id="btn-hide-seek" onclick="showTab('hide-seek')">Hide & Seek</button>
+            <button class="tab-btn" id="btn-rhythm-parade" onclick="showTab('rhythm-parade')">Rhythm Parade</button>
+            <button class="tab-btn" id="btn-quiz" onclick="showTab('quiz')">Quiz</button>
+        </div>
+
+        <!-- Tab 1: Donut Bakery -->
+        <div id="bakery" class="tab-content">
+            <h2 style="color: var(--accent-emerald);">Click a number to see the donuts!</h2>
+            <div id="numberGrid" class="alphabet-grid"></div>
+            <div id="donutDisplay" class="donut-area"></div>
+        </div>
+
+        <!-- Tab 2: Counting Critters -->
+        <div id="critters" class="tab-content" style="display: none;">
+            <div class="game-area">
+                <div id="itemsContainer" class="items-to-drag"></div>
+                <div id="dropBoxWrapper" class="drop-wrapper">
+                    <div id="boxLabel" class="box-label">Drop <span id="targetNum">3</span> stars here!</div>
+                    <div id="dropBox" class="drop-zone" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tab 3: Hide & Seek -->
+        <div id="hide-seek" class="tab-content" style="display: none;">
+            <h2 style="color: var(--accent-emerald);" id="findInstruction">Click a bush to find the number!</h2>
+            <div class="garden-grid" id="gardenGrid"></div>
+        </div>
+
+        <!-- Tab 4: Rhythm Parade -->
+        <div id="rhythm-parade" class="tab-content" style="display: none;">
+            <h2 style="color: var(--accent-emerald);">March to the beat of numbers!</h2>
+            <div class="parade-track" id="paradeTrack"></div>
+            <button class="tab-btn" style="margin-top:20px;" onclick="startParade()">Start Parade! 🥁</button>
+        </div>
+
+        <!-- Tab 5: Quiz -->
+        <div id="quiz" class="tab-content" style="display: none;">
+            <h2 style="color: var(--accent-emerald);">Choose your Challenge!</h2>
+            <div class="challenge-grid">
+                <div class="challenge-box" onclick="launchQuiz('visual')">🍩<br>Visual</div>
+                <div class="challenge-box" onclick="launchQuiz('missing')">🚂<br>Missing</div>
+                <div class="challenge-box" onclick="launchQuiz('monster')">👾<br>Monster</div>
+                <div class="challenge-box" onclick="launchQuiz('memory')">🧠<br>Memory</div>
+                <div class="challenge-box" onclick="launchQuiz('reward')">🏆<br>Reward</div>
+            </div>
+            <div id="activeQuizArea" class="quiz-box"></div>
+            <div id="scoreDisplay" class="score-board">Score: 0</div>
+        </div>
+    </div>
+
+    <!-- Valley Master Modal -->
+    <div id="masterModal" class="modal">
+        <div class="modal-content">
+            <h2>🎉 You are a Valley Master! 🏆</h2>
+            <p>You unlocked a Golden Sticker! ✨</p>
+            <button class="tab-btn" onclick="closeModal()">Play Again</button>
+        </div>
+    </div>
+
+    <script src="123-script.js"></script>
+</body>
+</html>
